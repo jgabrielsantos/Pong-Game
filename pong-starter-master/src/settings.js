@@ -13,3 +13,19 @@ export const L_PROPERTIES = {
     dasharray: "20, 25",
     stroke_width: 4
 }
+
+// variables for paddles
+export const P_PROPERTIES = {
+    color: "white",
+    speed: 10,
+    width: 8,
+    height: 56,
+
+    paddle1 = {
+        gap: 10
+    },
+
+    paddle2 = {
+        gap: P_PROPERTIES.width - P_PROPERTIES.paddle1.gap
+    }
+}
