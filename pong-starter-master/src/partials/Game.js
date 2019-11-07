@@ -17,7 +17,7 @@ export default class Game {
         this.board = new Board(this.width, this.height);
         this.paddle1 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle1Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle1Up, KEYS.paddle1Down);
         this.paddle2 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle2Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle2Up, KEYS.paddle2Down);
-        this.ball = new Ball(BALL.radius, BALL.x, BALL.y);
+        this.ball = new Ball(BALL.radius, this.width, this.height);
         // Other code goes here...
     }
 

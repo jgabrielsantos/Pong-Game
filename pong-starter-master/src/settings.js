@@ -34,7 +34,5 @@ export const KEYS = {
 
 export const BALL = {
     radius: 8,
-    x: B_PROPERTIES.width / 2,
-    y: B_PROPERTIES.height / 2,
     color: "white"
 }
