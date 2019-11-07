@@ -1,4 +1,4 @@
-import { SVG_NS, BALL } from "../settings";
+import { SVG_NS, BALL, B_PROPERTIES } from "../settings";
 
 export default class Ball {
     constructor(radius, boardWidth, boardHeight) {
@@ -26,6 +26,15 @@ export default class Ball {
 
     }
 
+    collision() {
+        const hitTop = (this.y - this.radius <= 0);
+        const hitBottom = (this.y + this.radius >= this.boardHeight);
+
+        if (hitTop || hitBottom) {
+            this.vy = this.vy * -1;
+        }
+    }
+
     render(svg) {
         let ball = document.createElementNS(SVG_NS, "circle");
         ball.setAttributeNS(null, "r", BALL.radius);
@@ -35,5 +44,6 @@ export default class Ball {
 
         svg.appendChild(ball);
         this.ballMove();
+        this.collision();
     }
 }
