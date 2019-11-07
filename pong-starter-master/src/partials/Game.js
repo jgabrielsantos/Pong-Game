@@ -1,6 +1,8 @@
-import { SVG_NS, P_PROPERTIES } from "../settings";
+import { SVG_NS, P_PROPERTIES, KEYS, BALL } from "../settings";
 import Board from "./Board";
 import Paddle from "./Paddle";
+import Ball from "./Ball";
+
 
 export default class Game {
     constructor(element, width, height) {
@@ -9,9 +11,13 @@ export default class Game {
         this.height = height;
         this.gameElement = document.getElementById(this.element);
 
+        const paddle1Gap = 10
+        const paddle2Gap = (this.width - P_PROPERTIES.width - paddle1Gap)
+
         this.board = new Board(this.width, this.height);
-        this.paddle1 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, P_PROPERTIES.paddle1.gap, (this.height / 2) - (P_PROPERTIES.height / 2));
-        this.paddle2 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, (this.width - P_PROPERTIES.paddle2.gap), (this.height / 2) - (P_PROPERTIES.height / 2));
+        this.paddle1 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle1Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle1Up, KEYS.paddle1Down);
+        this.paddle2 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle2Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle2Up, KEYS.paddle2Down);
+        this.ball = new Ball(BALL.radius, BALL.x, BALL.y);
         // Other code goes here...
     }
 
@@ -22,10 +28,10 @@ export default class Game {
         svg.setAttributeNS(null, "height", this.height);
         svg.setAttributeNS(null, "viewBox", `0 0 ${this.width} ${this.height}`);
         this.gameElement.appendChild(svg);
-
         this.board.render(svg);
         this.paddle1.render(svg);
         this.paddle2.render(svg);
+        this.ball.render(svg);
         // More code goes here....
     }
 }

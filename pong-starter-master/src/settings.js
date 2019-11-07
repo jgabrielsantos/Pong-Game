@@ -20,12 +20,21 @@ export const P_PROPERTIES = {
     speed: 10,
     width: 8,
     height: 56,
+}
 
-    paddle1 = {
-        gap: 10
-    },
+// variables for movement
+export const KEYS = {
+    paddle1Up: "w", // player 1 up key
+    paddle1Down: "s", // player 1 down key
+    paddle2Up: "ArrowUp", // player 2 up key
+    paddle2Down: "ArrowDown", // player 2 down key
+    pause: " ", // we'll use this later...
 
-    paddle2 = {
-        gap: P_PROPERTIES.width - P_PROPERTIES.paddle1.gap
-    }
+}
+
+export const BALL = {
+    radius: 8,
+    x: B_PROPERTIES.width / 2,
+    y: B_PROPERTIES.height / 2,
+    color: "white"
 }
