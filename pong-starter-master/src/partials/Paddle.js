@@ -8,7 +8,7 @@ export default class Paddle {
         this.x = x;
         this.y = y;
         this.score = 0;
-        this.speed = 10;
+        this.speed = P_PROPERTIES.speed;
         document.addEventListener("keydown", event => {
             switch (event.key) {
                 case up:
@@ -27,6 +27,15 @@ export default class Paddle {
 
     moveDown() {
         this.y = Math.min(this.y + this.speed, this.boardHeight - this.height);
+    }
+
+    getCoordinates() {
+        return {
+            left: this.x,
+            top: this.y,
+            right: this.x + this.width,
+            bottom: this.y + this.height,
+        };
     }
 
     render(svg) {

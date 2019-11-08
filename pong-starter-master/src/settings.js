@@ -17,7 +17,7 @@ export const L_PROPERTIES = {
 // variables for paddles
 export const P_PROPERTIES = {
     color: "white",
-    speed: 10,
+    speed: 15,
     width: 8,
     height: 56,
 }
