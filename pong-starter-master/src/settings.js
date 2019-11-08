@@ -24,12 +24,11 @@ export const P_PROPERTIES = {
 
 // variables for movement
 export const KEYS = {
-    paddle1Up: "w", // player 1 up key
-    paddle1Down: "s", // player 1 down key
-    paddle2Up: "ArrowUp", // player 2 up key
-    paddle2Down: "ArrowDown", // player 2 down key
-    pause: " ", // we'll use this later...
-
+    paddle1Up: "w",
+    paddle1Down: "s",
+    paddle2Up: "ArrowUp",
+    paddle2Down: "ArrowDown",
+    pause: " "
 }
 
 export const BALL = {

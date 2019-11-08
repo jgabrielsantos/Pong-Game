@@ -38,6 +38,14 @@ export default class Paddle {
         };
     }
 
+    increaseScore() {
+        this.score += 1;
+    }
+
+    setSpeed(speed) {
+        this.speed = speed;
+    }
+
     render(svg) {
         let paddle = document.createElementNS(SVG_NS, "rect");
         paddle.setAttributeNS(null, "x", this.x);

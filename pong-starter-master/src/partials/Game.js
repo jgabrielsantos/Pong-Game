@@ -18,10 +18,23 @@ export default class Game {
         this.paddle1 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle1Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle1Up, KEYS.paddle1Down);
         this.paddle2 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle2Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle2Up, KEYS.paddle2Down);
         this.ball = new Ball(BALL.radius, this.width, this.height);
+        this.pause = false;
+        document.addEventListener("keydown", event => {
+            if (event.key === KEYS.pause) {
+                this.paddle1.setSpeed(P_PROPERTIES.speed);
+                this.paddle2.setSpeed(P_PROPERTIES.speed);
+                this.pause = !this.pause
+            }
+        });
         // Other code goes here...
     }
 
     render() {
+        if (this.pause) {
+            this.paddle1.setSpeed(0);
+            this.paddle2.setSpeed(0);
+            return;
+        }
         this.gameElement.innerHTML = "";
         let svg = document.createElementNS(SVG_NS, "svg");
         svg.setAttributeNS(null, "width", this.width);
@@ -32,6 +45,8 @@ export default class Game {
         this.paddle1.render(svg);
         this.paddle2.render(svg);
         this.ball.render(svg, this.paddle1, this.paddle2);
+
+
         // More code goes here....
     }
 }
