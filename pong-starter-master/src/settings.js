@@ -35,3 +35,7 @@ export const BALL = {
     radius: 8,
     color: "white"
 }
+
+export const SCORE = {
+    size: 30
+}
