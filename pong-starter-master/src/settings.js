@@ -20,6 +20,8 @@ export const P_PROPERTIES = {
     speed: 15,
     width: 8,
     height: 56,
+    p1: "Player 1",
+    p2: "Player 2"
 }
 
 // variables for movement

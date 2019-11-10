@@ -16,6 +16,15 @@ export default class Score {
         scoreText.setAttributeNS(null, "fill", "white");
         scoreText.textContent = score;
 
-        svg.appendChild(scoreText);
+        const player = document.createElementNS(SVG_NS, "text");
+        player.setAttributeNS(null, "x", this.x);
+        player.setAttributeNS(null, "y", this.y);
+        player.setAttributeNS(null, "font-size", this.size);
+        player.setAttributeNS(null, "font-family", "Silkscreen Web");
+        player.setAttributeNS(null, "fill", "white");
+        player.textContent = player;
+
+
+        svg.appendChild(scoreText, player);
     }
 }
