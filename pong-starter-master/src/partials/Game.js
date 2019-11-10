@@ -64,5 +64,6 @@ export default class Game {
 
 
 // Strech Goals
+// add name to players
 // decrease speed after each score
 // stop game and display winner at score === 10
