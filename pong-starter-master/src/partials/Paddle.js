@@ -40,6 +40,7 @@ export default class Paddle {
 
     increaseScore() {
         this.score += 1;
+        this.speed -= 2; // decrease speed after each goal
     }
 
     getScore() {
@@ -48,6 +49,7 @@ export default class Paddle {
 
     setSpeed(speed) {
         this.speed = speed;
+
     }
 
     render(svg) {

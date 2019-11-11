@@ -20,16 +20,17 @@ export default class Game {
         this.paddle2 = new Paddle(P_PROPERTIES.width, P_PROPERTIES.height, this.height, paddle2Gap, (this.height / 2) - (P_PROPERTIES.height / 2), KEYS.paddle2Up, KEYS.paddle2Down);
         this.ball = new Ball(BALL.radius, this.width, this.height);
         this.score1 = new Score(this.width / 2 - 50, 30, SCORE.size);
-        this.player1 = new Score(this.width / 2 - 250, 15, SCORE.size / 2);
+        this.player1 = new Score(this.width / 2 - 230, 25, SCORE.size / 2);
         this.score2 = new Score(this.width / 2 + 25, 30, SCORE.size);
-        this.player2 = new Score(this.width / 2 + 170, 15, SCORE.size / 2);
+        this.player2 = new Score(this.width / 2 + 150, 25, SCORE.size / 2);
 
         this.pause = false;
         document.addEventListener("keydown", event => {
             if (event.key === KEYS.pause) {
                 this.paddle1.setSpeed(P_PROPERTIES.speed);
                 this.paddle2.setSpeed(P_PROPERTIES.speed);
-                this.pause = !this.pause
+                this.pause = !this.pause;
+                return
             }
         });
         // Other code goes here...
@@ -41,6 +42,7 @@ export default class Game {
             this.paddle2.setSpeed(0);
             return;
         }
+
         this.gameElement.innerHTML = "";
         let svg = document.createElementNS(SVG_NS, "svg");
         svg.setAttributeNS(null, "width", this.width);
@@ -56,6 +58,33 @@ export default class Game {
         this.score2.render(svg, this.paddle2.getScore());
         this.player2.render(svg, P_PROPERTIES.p2);
 
+        if (this.paddle2.getScore() === 10) {
+            this.pause = true;
+
+            const winner = document.createElementNS(SVG_NS, "text");
+            winner.setAttributeNS(null, "x", this.width / 2 - 100);
+            winner.setAttributeNS(null, "y", this.height / 2);
+            winner.setAttributeNS(null, "font-size", SCORE.size);
+            winner.setAttributeNS(null, "font-family", "Silkscreen Web");
+            winner.setAttribute(null, "fill", "white");
+            winner.textContent = P_PROPERTIES.p2 + "Wins!";
+            svg.appendChild(winner);
+            return;
+        }
+
+        if (this.paddle1.getScore() === 10) {
+            this.pause = true;
+
+            const winner = document.createElementNS(SVG_NS, "text");
+            winner.setAttributeNS(null, "x", this.width / 2 - 100);
+            winner.setAttributeNS(null, "y", this.height / 2);
+            winner.setAttributeNS(null, "font-size", SCORE.size);
+            winner.setAttributeNS(null, "font-family", "Silkscreen Web");
+            winner.setAttribute(null, "fill", "white");
+            winner.textContent = P_PROPERTIES.p1 + "Wins!";
+            svg.appendChild(winner);
+            return;
+        }
 
         // More code goes here....
     }

@@ -31,8 +31,8 @@ export default class Ball {
     collision(paddle1, paddle2) {
         const hitTop = (this.y - this.radius <= 0);
         const hitBottom = (this.y + this.radius >= this.boardHeight);
-        const hitLeft = (this.x < 0);
-        const hitRight = (this.x > this.boardWidth);
+        const hitLeft = (this.x - this.radius < 0);
+        const hitRight = (this.x + this.radius > this.boardWidth);
 
         if (hitTop || hitBottom) {
             this.vy = this.vy * -1;
@@ -85,5 +85,5 @@ export default class Ball {
         this.ballMove();
         this.collision(paddle1, paddle2);
         this.paddleCollision(paddle1, paddle2);
-    }
+    };
 }
