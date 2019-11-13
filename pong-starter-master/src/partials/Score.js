@@ -22,9 +22,7 @@ export default class Score {
         player.setAttributeNS(null, "font-size", this.size);
         player.setAttributeNS(null, "font-family", "Silkscreen Web");
         player.setAttributeNS(null, "fill", "white");
-        player.textContent = player;
 
-
-        svg.appendChild(scoreText, player);
+        svg.appendChild(scoreText);
     }
 }

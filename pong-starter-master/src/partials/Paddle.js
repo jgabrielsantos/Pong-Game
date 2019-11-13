@@ -1,5 +1,6 @@
 import { SVG_NS, P_PROPERTIES, } from "../settings";
 
+
 export default class Paddle {
     constructor(width, height, boardHeight, x, y, up, down) {
         this.width = width;
@@ -45,6 +46,10 @@ export default class Paddle {
 
     getScore() {
         return this.score;
+    }
+
+    resetScore() {
+        this.score = 0;
     }
 
     setSpeed(speed) {
