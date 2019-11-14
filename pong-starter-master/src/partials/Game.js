@@ -56,6 +56,7 @@ export default class Game {
         this.paddle2.render(svg);
         this.ball.render(svg, this.paddle1, this.paddle2);
 
+
         if (this.paddle1.getScore() > 2 || this.paddle2.getScore() > 2) {
             this.ball2.render(svg, this.paddle1, this.paddle2);
         }
