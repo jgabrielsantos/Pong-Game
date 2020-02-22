@@ -39,3 +39,7 @@ Once you have done this, you can run:
 `$ npm run deploy`
 
 Now check out your deployed site 🙂
+
+## Sample
+
+![Homepage Screenshot](Homepage_Screenshot.png)
